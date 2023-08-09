@@ -99,7 +99,7 @@ class ApolloServer extends ApolloServerBase {
 
 	// This integration supports file uploads.
 	supportsUploads() {
-		return false;
+		return true;
 	}
 
 	// This integration supports subscriptions.

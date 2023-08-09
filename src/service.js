@@ -836,11 +836,11 @@ module.exports = function (mixinOptions) {
 
 			// Bind service to onConnect method
 
-			Object.entries(mixinOptions.serverOptions.subscriptions).forEach(([key,val],i,obj)=>{
-				if ( _.isFunction(val) ) {
-					mixinOptions.serverOptions.subscriptions[key] = val.bind(this);
-				}
-			});
+			// Object.entries(mixinOptions.serverOptions.subscriptions).forEach(([key,val],i,obj)=>{
+			// 	if ( _.isFunction(val) ) {
+			// 		mixinOptions.serverOptions.subscriptions[key] = val.bind(this);
+			// 	}
+			// });
 			Object.entries(mixinOptions.serverOptions).forEach(([key,val],i,obj)=>{
 				if ( _.isFunction(val) ) {
 					mixinOptions.serverOptions[key] = val.bind(this);

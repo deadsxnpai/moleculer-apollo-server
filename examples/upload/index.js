@@ -8,38 +8,6 @@ const { ApolloService, GraphQLUpload } = require("../../index");
 const broker = new ServiceBroker({ logLevel: "info", hotReload: true });
 
 broker.createService({
-	name: "api",
-
-	mixins: [
-		// Gateway
-		ApiGateway,
-
-		// GraphQL Apollo Server
-		ApolloService({
-			typeDefs: ["scalar Upload"],
-			resolvers: {
-				Upload: GraphQLUpload,
-			},
-			// API Gateway route options
-			routeOptions: {
-				path: "/graphql",
-				cors: true,
-				mappingPolicy: "restrict",
-			},
-
-			// https://www.apollographql.com/docs/apollo-server/v2/api/apollo-server.html
-			serverOptions: {},
-		}),
-	],
-
-	events: {
-		"graphql.schema.updated"({ schema }) {
-			this.logger.info("Generated GraphQL schema:\n\n" + schema);
-		},
-	},
-});
-
-broker.createService({
 	name: "files",
 	settings: {
 		graphql: {
@@ -83,9 +51,10 @@ broker.createService({
 	},
 });
 
+broker.createService(ApiGateway);
+
 broker.start().then(async () => {
 	broker.repl();
-
 	broker.logger.info("----------------------------------------------------------");
 	broker.logger.info("For information about creating a file upload request,");
 	broker.logger.info(
