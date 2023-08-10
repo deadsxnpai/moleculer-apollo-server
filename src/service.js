@@ -900,7 +900,7 @@ module.exports = function (mixinOptions) {
 				},
 
 				mappingPolicy: "restrict",
-
+				
 				bodyParsers: {
 					json: true,
 					urlencoded: { extended: true },

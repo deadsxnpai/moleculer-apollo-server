@@ -16,7 +16,7 @@
 
 const { GraphQLError } = require("graphql");
 
-const GraphQLUpload = require("graphql-upload").GraphQLUpload;
+//const GraphQLUpload = require("graphql-upload").GraphQLUpload;
 const { ApolloServer } = require("./src/ApolloServer");
 const ApolloService = require("./src/service");
 const gql = require("./src/gql");
@@ -40,7 +40,7 @@ module.exports = {
     */
 
 	// GraphQL Upload
-	GraphQLUpload,
+	//GraphQLUpload,
 
 	// Apollo Server
 	ApolloServer,
