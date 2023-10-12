@@ -80,14 +80,14 @@ function moleculerMiddleware(server,options) {
 
                 // httpGraphQLResponse.body.kind == "chunked"
                 //FIXME: code4bones: dont't know how to test that !
-                const buf = "";
-                for await (const chunk of httpGraphQLResponse.body.asyncIterator) {
-                    buf += chunk;
-                }
-                console.warn("**")
-                console.warn("*** YOU'RE GOT A CHUNKED RESULT, PLEASE REPORT TEST CASE TO"); 
-                console.warn("*** https://github.com/code4bones/moleculer-apollo-server")
-                console.warn("**")
+                // const buf = "";
+                // for await (const chunk of httpGraphQLResponse.body.asyncIterator) {
+                //     buf += chunk;
+                // }
+                // console.warn("**")
+                // console.warn("*** YOU'RE GOT A CHUNKED RESULT, PLEASE REPORT TEST CASE TO"); 
+                // console.warn("*** https://github.com/code4bones/moleculer-apollo-server")
+                // console.warn("**")
                 return {
                     statusCode: res.statusCode,
                     data:buf
